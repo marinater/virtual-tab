@@ -33,5 +33,6 @@ class ImageIO:
             cv2.destroyAllWindows()
             return True
 
-        self.prev_rate = self.fps.stop_frame()
+        if wait:
+            self.prev_rate = self.fps.stop_frame()
         return False
