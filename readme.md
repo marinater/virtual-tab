@@ -7,11 +7,12 @@ Camera based replacement for physical drawing tablets
 ```
 python3 -m venv .venv
 source .venv/bin/activate
-python3 -m pip install -r requirements.txt
+pip install -r requirements.txt
+python app.py
 ```
 
 ## Developers
 
 ```
-python3 -m pip freeze > requirements.txt
+python -m pip freeze > requirements.txt
 ```
