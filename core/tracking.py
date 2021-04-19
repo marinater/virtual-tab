@@ -55,7 +55,8 @@ class Tracking:
         src = np.array([[position]], dtype=np.float32)
         cvPoint = cv2.perspectiveTransform(src, self.transform)[0][0]
         screenPoint = cvPointToScreenPoint(cvPoint)
-        pyautogui.moveTo(0, 0)
+        print(screenPoint)
+        pyautogui.moveTo(*screenPoint)
 
     def start(self):
         # trackingThread = Thread(target=tracking_loop, args= (self,))
