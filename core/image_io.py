@@ -24,7 +24,7 @@ class ImageIO:
     def show_frame(self, title, frame, wait=False):
         if wait:
             frame_copy = frame.copy()
-            cv2.putText(frame_copy, f'{self.prev_rate:.0f} fps', (30, 30), cv2.FONT_HERSHEY_PLAIN, 1, 255)
+            cv2.putText(frame_copy, f'{self.prev_rate:.0f} fps', (30, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255))
             cv2.imshow(title, frame_copy)
         else:
             cv2.imshow(title, frame)
