@@ -16,7 +16,7 @@ class Hyperparameters:
                 Hyperparameters.thresh_pen_min = tuple(newMin)
         return updatePenThresholds
 
-title_window = 'Filtering Settings'
+title_window = 'output'
 cv2.namedWindow(title_window)
 cv2.createTrackbar(
     'H - Min', title_window,
