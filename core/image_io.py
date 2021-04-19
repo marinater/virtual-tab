@@ -21,7 +21,7 @@ class ImageIO:
     # function will wait 1ms an listen to
     # check if the window recieved a kill
     # signal and return True if so.
-    def show_frame(self, title, frame, wait=False):
+    def show_frame(self, title, frame, wait=False, tracker=None):
         if wait:
             frame_copy = frame.copy()
             cv2.putText(frame_copy, f'{self.prev_rate:.0f} fps', (30, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255))
@@ -29,10 +29,14 @@ class ImageIO:
         else:
             cv2.imshow(title, frame)
 
-        if wait and cv2.waitKey(1) == 27:
-            cv2.destroyAllWindows()
-            return True
-
         if wait:
+            key = cv2.waitKey(1)
+            if key == 27:
+                cv2.destroyAllWindows()
+                return False
+            elif key == 13 and tracker:
+                tracker.setCorner()
+
             self.prev_rate = self.fps.stop_frame()
-        return False
+
+        return True
