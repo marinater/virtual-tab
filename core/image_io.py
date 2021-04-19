@@ -1,6 +1,7 @@
 import cv2
 from .fps import FPS
 
+
 class ImageIO:
     def __init__(self):
         self.cam = cv2.VideoCapture(0)
@@ -24,7 +25,14 @@ class ImageIO:
     def show_frame(self, title, frame, wait=False, tracker=None):
         if wait:
             frame_copy = frame.copy()
-            cv2.putText(frame_copy, f'{self.prev_rate:.0f} fps', (30, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255))
+            cv2.putText(
+                frame_copy,
+                f"{self.prev_rate:.0f} fps",
+                (30, 30),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                1,
+                (255, 255, 255),
+            )
             cv2.imshow(title, frame_copy)
         else:
             cv2.imshow(title, frame)
