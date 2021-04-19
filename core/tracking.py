@@ -1,7 +1,15 @@
 from threading import Thread
-from .process import tracking_loop
+from .process import round_tuple, tracking_loop
 import numpy as np
 import cv2
+import pyautogui
+pyautogui.PAUSE = 0
+
+w_max = 1920
+h_max = 1080
+def cvPointToScreenPoint(cv_point):
+    row, col = map(lambda x: int(max(0, round(x))), cv_point)
+    return min(w_max - 1, col), min(h_max - 1, row)
 
 class Tracking:
     def __init__(self):
@@ -30,18 +38,16 @@ class Tracking:
         if self.corners is None:
             return
 
-        w = 1920
-        h = 1080
-
         src = self.corners
         dst = np.array([
             [0, 0],
-            [h - 1, 0],
-            [h - 1, w - 1],
-            [0, w - 1],
+            [h_max - 1, 0],
+            [h_max - 1, w_max - 1],
+            [0, w_max - 1],
         ], dtype=np.float32)
 
         self.transform = cv2.getPerspectiveTransform(src, dst)
+        pyautogui.sleep(0.5)
 
     def setPosition(self, position):
         self.position = position
@@ -49,8 +55,10 @@ class Tracking:
             return
 
         src = np.array([[position]], dtype=np.float32)
-        res = cv2.perspectiveTransform(src, self.transform)
-        print(res[0])
+        cvPoint = cv2.perspectiveTransform(src, self.transform)[0][0]
+        screenPoint = cvPointToScreenPoint(cvPoint)
+        print(screenPoint)
+        pyautogui.moveTo(*screenPoint)
 
     def start(self):
         # trackingThread = Thread(target=tracking_loop, args= (self,))
