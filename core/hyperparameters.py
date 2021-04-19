@@ -70,7 +70,7 @@ cv2.createTrackbar(
 )
 
 cv2.createTrackbar(
-    'V - Max', title_window,
-    255, 255,
-    params.updatePenThresholdsCallback(True, 2)
+    'Save', title_window,
+    0, 1,
+    params.exportParameters
 )
