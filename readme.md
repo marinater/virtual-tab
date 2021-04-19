@@ -27,16 +27,32 @@ The scope of this project may change based on how many members join and how much
 
 ## Getting Started
 
+### Setup (Only need to do once)
+
 ```shell
+# clone the repo
+git clone https://github.com/marinater/virtual-tab.git
+cd virtual-tab
+# create a virtual environment for this project
 python3 -m venv .venv
+# install dependencies within the virtual environment
 source .venv/bin/activate
 pip install -r requirements.txt
+```
+
+### After setup
+
+```shell
+# make sure you are in the virtual-tab root directory
+# use virtual environment
+source .venv/bin/activate
+# run the project
 python app.py
 ```
 
-## Developers
+### Adding new dependencies to requirements.txt
 
-```
+```shell
+# make sure you are in the virtual-tab root directory
 python -m pip freeze > requirements.txt
 ```
-
