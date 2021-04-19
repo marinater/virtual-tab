@@ -24,15 +24,6 @@ def process_frame(image_in):
         image_thresh_overlayed[labeled == largest_label, :] = (255, 100, 0)
         cv2.drawMarker(image_thresh_overlayed, pen_center, (100, 255, 0), cv2.MARKER_CROSS, 10, 2)
 
-    # if contours:
-    #     largest_contour_idx, largest_contour_area = max([
-    #         (i, cv2.contourArea(contour))
-    #         for i, contour
-    #         in enumerate(contours)
-    #     ], key= lambda x: x[1])
-
-    #     cv2.drawContours(image_thresh_overlayed, contours, largest_contour_idx, (0, 255, 0), -1)
-
     return image_thresh_overlayed
 
 def run():
