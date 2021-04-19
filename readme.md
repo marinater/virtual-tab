@@ -97,3 +97,18 @@ Need help testing on Windows! Please consider contributing to this section.
 
 Need help testing on Linux! Please consider contributing to this section.
 
+## Virtual Tab Community
+
+### Discord
+
+This is the fastest way to get in touch with us! We would love to have more contributors as well as get feedback from real users. At the moment, we have a discord where we have channels dedicated to discussing existing features as well as talk about developing new features.
+
+[Discord link here](https://discord.gg/yxhUZuAShH)
+
+### Github Issues
+
+While the project is under active development, you can count on issues created with the github issue tracker to be seen and at least responded to within a few days. Feel free to ping us on Discord if the issue has been sitting stale for longer than that, since we are less likely to miss it there.
+
+### Github Wiki
+
+The majority of our documentation and status updates will be done through the Github Wiki. Updates, blog posts, etc. can all be found there.
