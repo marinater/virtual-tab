@@ -18,15 +18,16 @@ def process_frame(image_in):
     if count > 1:
         largest_label = np.argmax(stats[1:, cv2.CC_STAT_AREA]) + 1
         pen_center = (
-            int(centroids[largest_label][0]),
-            int(centroids[largest_label][1])
+            int(round(centroids[largest_label][0])),
+            int(round(centroids[largest_label][1]))
         )
+
         image_thresh_overlayed[labeled == largest_label, :] = (255, 100, 0)
         cv2.drawMarker(image_thresh_overlayed, pen_center, (100, 255, 0), cv2.MARKER_CROSS, 10, 2)
 
     return image_thresh_overlayed
 
-def run():
+def tracking_loop():
     while True:
         image_in = io.get_frame()
         # io.show_frame('input', image_in)
