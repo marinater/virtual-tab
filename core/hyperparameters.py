@@ -12,6 +12,14 @@ class Hyperparameters:
         self.thresh_pen_min = tuple(params['thresh_pen_min'])
         self.thresh_pen_max = tuple(params['thresh_pen_max'])
 
+    def exportParameters(self, value):
+        with open('./settings/hyperparameters2.json', 'w') as f:
+            exported_params = {
+                'thresh_pen_min': self.thresh_pen_min,
+                'thresh_pen_max': self.thresh_pen_max
+            }
+            json.dump(exported_params, f, indent=4)
+
     def updatePenThresholdsCallback(self, updateMax, index):
         def updatePenThresholds(value):
             if updateMax:
