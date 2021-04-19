@@ -5,18 +5,21 @@ import cv2
 
 io = ImageIO()
 
-# H (0, 180)
-# S (0, 255)
-# V (0, 255)
-
 def process_frame(image_in):
     image_hsv = cv2.cvtColor(image_in, cv2.COLOR_BGR2HSV)
     image_thresh = cv2.inRange(image_hsv, params.thresh_pen_min, params.thresh_pen_max)
     image_thresh = cv2.morphologyEx(image_thresh, cv2.MORPH_OPEN, np.ones((5,5), np.uint8))
-    # io.show_frame('thresholded', image_thresh)
-    image_out = image_in.copy()
-    image_out[image_thresh == 255, :] = (0, 0, 255)
-    return image_out
+
+    # image_thresh_overlayed = image_in.copy()
+    # image_thresh_overlayed[image_thresh == 255, :] = (0, 0, 255)
+    # io.show_frame('thresholded', image_thresh_overlayed)
+
+    contours, hierarchy = cv2.findContours(image_thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    if contours:
+        largest_contour = max([(cv2.contourArea(contour), contour) for contour in contours], key= lambda x: x[0])
+        print(largest_contour[0])
+
+    return image_thresh
 
 def run():
     while True:
