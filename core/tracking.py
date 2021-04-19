@@ -64,4 +64,3 @@ class Tracking:
         # trackingThread = Thread(target=tracking_loop, args= (self,))
         # trackingThread.start()
         tracking_loop(self)
-
