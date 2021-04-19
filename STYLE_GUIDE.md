@@ -5,7 +5,7 @@
 - All code in pull requests will be automatically formatted using a Github Action written by Peter Evans [in this blog post](https://peterevans.dev/posts/github-actions-how-to-automate-code-formatting-in-pull-requests/).
 - It is recommended, that you format code locally using Black as well, though not required.
 
-## Naming Scheme
+## Naming Schemes
 
 ### Files and Folders
 
