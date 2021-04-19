@@ -17,7 +17,12 @@ def process_frame(image_in):
     count, labeled, stats, centroids = cv2.connectedComponentsWithStats(image_thresh, 4, cv2.CV_32S)
     if count > 1:
         largest_label = np.argmax(stats[1:, cv2.CC_STAT_AREA]) + 1
-        print(largest_label, stats[largest_label, cv2.CC_STAT_AREA])
+        pen_center = (
+            int(centroids[largest_label][0]),
+            int(centroids[largest_label][1])
+        )
+        image_thresh_overlayed[labeled == largest_label, :] = (255, 100, 0)
+        cv2.drawMarker(image_thresh_overlayed, pen_center, (100, 255, 0), cv2.MARKER_CROSS, 10, 2)
 
     # if contours:
     #     largest_contour_idx, largest_contour_area = max([
