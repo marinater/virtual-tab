@@ -1,3 +1,2 @@
-from core.process import run
-
-run()
+from core.process import tracking_loop
+tracking_loop()
