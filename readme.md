@@ -85,6 +85,10 @@ If you run the program and it quits immediately (sometimes with an error code, s
 - Click the lock in the bottom left and enter your password
 - Find "Terminal" in the list of apps on the right and ensure that it is checked
 
+> Important note: If "Terminal" does not appear on the list of apps, close the systems preferences menu, rerun the app, and then navigate to the page again. Apps only show up on the list after the first time they request those permissions.
+
+> Important note: You must run the project from an application you grant the above permissions to. If you grant permissions to Terminal, you must run it from the Terminal app. Getting the program to run inside a VS Code shell will be much more difficult and is not something we have done.
+
 ### Permissions (Windows)
 
 Need help testing on Windows! Please consider contributing to this section.
@@ -92,3 +96,4 @@ Need help testing on Windows! Please consider contributing to this section.
 ### Permissions (Linux)
 
 Need help testing on Linux! Please consider contributing to this section.
+
