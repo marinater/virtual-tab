@@ -29,7 +29,6 @@ def process_frame(tracker):
         tracker.position = pen_center
 
     if tracker.corners:
-        print(tracker.tabletPoly)
         cv2.polylines(image_thresh_overlayed, tracker.tabletPoly, True, (255, 255, 255), 2)
 
     return io.show_frame('output', image_thresh_overlayed, wait=True, tracker=tracker)
