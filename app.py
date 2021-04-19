@@ -1,2 +1,4 @@
-from core.process import tracking_loop
-tracking_loop()
+from core.tracking import Tracking
+
+tracking = Tracking()
+tracking.start()

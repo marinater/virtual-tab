@@ -5,7 +5,9 @@ import cv2
 
 io = ImageIO()
 
-def process_frame(image_in):
+def process_frame(tracker):
+    image_in = io.get_frame()
+
     image_hsv = cv2.cvtColor(image_in, cv2.COLOR_BGR2HSV)
     image_thresh = cv2.inRange(image_hsv, params.thresh_pen_min, params.thresh_pen_max)
     image_thresh = cv2.morphologyEx(image_thresh, cv2.MORPH_OPEN, np.ones((5,5), np.uint8))
@@ -24,14 +26,15 @@ def process_frame(image_in):
 
         image_thresh_overlayed[labeled == largest_label, :] = (255, 100, 0)
         cv2.drawMarker(image_thresh_overlayed, pen_center, (100, 255, 0), cv2.MARKER_CROSS, 10, 2)
+        tracker.position = pen_center
 
-    return image_thresh_overlayed
+    if tracker.corners:
+        print(tracker.tabletPoly)
+        cv2.polylines(image_thresh_overlayed, tracker.tabletPoly, True, (255, 255, 255), 2)
 
-def tracking_loop():
-    while True:
-        image_in = io.get_frame()
-        # io.show_frame('input', image_in)
+    return io.show_frame('output', image_thresh_overlayed, wait=True, tracker=tracker)
 
-        image_out = process_frame(image_in)
-        if io.show_frame('output', image_out, wait=True):
-            break
+
+def tracking_loop(tracker):
+    while process_frame(tracker):
+        pass
