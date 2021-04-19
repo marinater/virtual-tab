@@ -50,9 +50,45 @@ source .venv/bin/activate
 python app.py
 ```
 
+
+
+> Important note: This project requires access to your camera and mouse, which some operating systems will flat out deny the first time you run the program. Asking users for these permissions is something that we are interested in implementing, but until then, look at the Troubleshooting section to find out how to grant the necessary access.
+
 ### Adding new dependencies to requirements.txt
 
 ```shell
 # make sure you are in the virtual-tab root directory
 python -m pip freeze > requirements.txt
 ```
+
+## Troubleshooting
+
+Below is a list of problems we ran into while developing the project and anticipate users may as well. This list is not exhaustive by any means, so feel free to open issues on the Github issue tracker or even open a pull request to add more content to this Troubleshooting section!
+
+### Python version
+
+Our project will only work with Python 3. If you are getting strange syntax errors or missing dependencies right off the bat, check that the program is not being run with a Python 2 interpreter.
+
+### Permissions (macOS Big Sur)
+
+If you run the program and it quits immediately (sometimes with an error code, sometimes not), you most likely need to give the Terminal program access to your camera. If, later on, the program is unable to move the mouse the way it should, you most likely need to give the Terminal program access to 'accessibility' features.
+
+##### To grant camera permissions:
+
+- Navigate to System Preferences -> Security & Privacy -> Privacy Tab -> Camera
+- Click the lock in the bottom left and enter your password
+- Find "Terminal" in the list of apps on the right and ensure that it is checked
+
+##### To grant mouse permissions:
+
+- Navigate to System Preferences -> Security & Privacy -> Privacy Tab -> Accessibility
+- Click the lock in the bottom left and enter your password
+- Find "Terminal" in the list of apps on the right and ensure that it is checked
+
+### Permissions (Windows)
+
+Need help testing on Windows! Please consider contributing to this section.
+
+### Permissions (Linux)
+
+Need help testing on Linux! Please consider contributing to this section.
