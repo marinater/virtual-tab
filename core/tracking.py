@@ -3,6 +3,7 @@ from .process import round_tuple, tracking_loop
 import numpy as np
 import cv2
 import pyautogui
+pyautogui.PAUSE = 0
 
 w_max = 1920
 h_max = 1080
@@ -46,6 +47,7 @@ class Tracking:
         ], dtype=np.float32)
 
         self.transform = cv2.getPerspectiveTransform(src, dst)
+        pyautogui.sleep(0.5)
 
     def setPosition(self, position):
         self.position = position
