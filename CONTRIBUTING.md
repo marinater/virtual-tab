@@ -18,34 +18,7 @@ As this is still a new project with few contributors, these guidelines are still
 
 As we are still small, issues and pull requests do not have to be fully fleshed out. If we have discussed it already, a descriptive title could be sufficient. This is mainly so that we can focus on quickly developing the project instead of formalizing something that we have already established.
 
-As we grow, this approach is certainly not scalable. All ideas cannot be run by project leads, so properly formatted issues and pull requests will go a long way.
-
-For now, the following templates are not required, but could certainly be helpful:
-
-```
-Feature Request: [Short feature title]
-
-[Request description]
-
-[How the request would improve the project]
-```
-
-```
-Pull Request: [PR title]
-
-Whats Included:
-	- [Bulleted list of implemented features]
-
-Addresses: [list of issues addressed]
-```
-
-```
-Bug Report: [Short bug description]
-
-Expected behavior:
-What actually happens:
-Minimally reproducible example:
-```
+As we grow, this approach is certainly not scalable. All ideas cannot be run by project leads, so properly formatted issues and pull requests will go a long way. For convenience, there are issue templates set up to help automate this process.
 
 ## Writing Documentation
 
