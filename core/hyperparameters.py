@@ -1,7 +1,10 @@
 import json
 import cv2
 
-
+# a class that loads and stores pen thresholding settings
+# it uses opencv trackbars to make a GUI interface for
+# updating these values and serializing them to
+# './settings/hyperparameters.json'
 class Hyperparameters:
     def __init__(self):
         self.importParameters()
@@ -13,8 +16,8 @@ class Hyperparameters:
         self.thresh_pen_min = tuple(params["thresh_pen_min"])
         self.thresh_pen_max = tuple(params["thresh_pen_max"])
 
-    def exportParameters(self, value):
-        with open("./settings/hyperparameters2.json", "w") as f:
+    def exportParameters(self):
+        with open("./settings/hyperparameters.json", "w") as f:
             exported_params = {
                 "thresh_pen_min": self.thresh_pen_min,
                 "thresh_pen_max": self.thresh_pen_max,
@@ -35,7 +38,7 @@ class Hyperparameters:
         return updatePenThresholds
 
 
-title_window = "output"
+title_window = "parameters"
 cv2.namedWindow(title_window)
 
 params = Hyperparameters()

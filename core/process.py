@@ -5,11 +5,12 @@ import cv2
 
 io = ImageIO()
 
-
+# round and cast tuple to have int values
 def round_tuple(x):
     return int(round(x[0])), int(round(x[1]))
 
-
+# takes in a tracker object, find the location of the pen, and calls tracker.setPosition
+# with the new coordinates if a pen is detected
 def process_frame(tracker):
     image_in = io.get_frame()
 
@@ -48,7 +49,7 @@ def process_frame(tracker):
 
     return io.show_frame("output", image_thresh_overlayed, wait=True, tracker=tracker)
 
-
+# starts an infinite loop that constantly tracks and updates the pen location
 def tracking_loop(tracker):
     while process_frame(tracker):
         pass

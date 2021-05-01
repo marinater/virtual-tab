@@ -3,7 +3,8 @@ from collections import deque
 
 max_queue_length = 30
 
-
+# keeps track of the current FPS
+# FPS is averaged over the last 30 frames
 class FPS:
     def __init__(self):
         self._frame_start = None

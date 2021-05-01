@@ -4,7 +4,7 @@ from .fps import FPS
 
 class ImageIO:
     def __init__(self):
-        self.cam = cv2.VideoCapture(0)
+        self.cam = cv2.VideoCapture(1)
         self.fps = FPS()
         self.prev_rate = 0
 
